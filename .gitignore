@@ -1,0 +1,53 @@
+.vscode
+DatingApp.API/bin
+DatingApp.API/obj
+DatingApp.API/Properties
+DatingApp.API/appsettings.Development.json
+DatingApp.API/appsettings.json
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+DatingApp-SPA/dist
+DatingApp-SPA/tmp
+DatingApp-SPA/out-tsc
+# Only exists if Bazel was run
+DatingApp-SPA/bazel-out
+
+# dependencies
+DatingApp-SPA/node_modules
+
+# profiling files
+DatingApp-SPA/chrome-profiler-events*.json
+DatingApp-SPA/speed-measure-plugin*.json
+
+# IDEs and editors
+DatingApp-SPA/.idea
+DatingApp-SPA/.project
+DatingApp-SPA/.classpath
+DatingApp-SPA/.c9/
+DatingApp-SPA/*.launch
+DatingApp-SPA/.settings/
+DatingApp-SPA/*.sublime-workspace
+
+# IDE - VSCode
+DatingApp-SPA/.vscode/*
+DatingApp-SPA/!.vscode/settings.json
+DatingApp-SPA/!.vscode/tasks.json
+DatingApp-SPA/!.vscode/launch.json
+DatingApp-SPA/!.vscode/extensions.json
+DatingApp-SPA/.history/*
+
+# misc
+DatingApp-SPA/.sass-cache
+DatingApp-SPA/connect.lock
+DatingApp-SPA/coverage
+DatingApp-SPA/libpeerconnection.log
+DatingApp-SPA/npm-debug.log
+DatingApp-SPA/yarn-error.log
+DatingApp-SPA/testem.log
+DatingApp-SPA/typings
+
+# System Files
+DatingApp-SPA/.DS_Store
+DatingApp-SPA/Thumbs.db
