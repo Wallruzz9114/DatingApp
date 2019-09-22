@@ -1,4 +1,4 @@
-// import { AlertifyService } from './../../services/alertify/alertify.service';
+import { AlertifyService } from './../../services/alertify/alertify.service';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,21 +13,21 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class NavComponent implements OnInit {
 
   model: any = {};
-  // photoURL: string;
+  photoURL: string;
 
-  constructor(public authenticationService: AuthenticationService) { }
+  constructor(public authenticationService: AuthenticationService, private alertifyService: AlertifyService, private router: Router) { }
 
   ngOnInit() {
-    // this.authenticationService.currentPhotoURL.subscribe(photoURL => this.photoURL = photoURL);
+    this.authenticationService.currentPhotoURL.subscribe(photoURL => this.photoURL = photoURL);
   }
 
   login() {
     this.authenticationService.login(this.model).subscribe(next => {
-      // this.alertifyService.success('Logged in successfully');
+      this.alertifyService.success('Logged in successfully');
     }, error => {
       console.log(error);
     }, () => {
-      // this.router.navigate(['/people']);
+      this.router.navigate(['/people']);
     });
   }
 
@@ -37,11 +37,11 @@ export class NavComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    // localStorage.removeItem('user');
-    // this.authenticationService.decodedToken = null;
-    // this.authenticationService.currentUser = null;
-    // this.alertifyService.message('Logged out!');
-    // this.router.navigate(['/home']);
+    localStorage.removeItem('user');
+    this.authenticationService.decodedToken = null;
+    this.authenticationService.currentUser = null;
+    this.alertifyService.message('Logged out!');
+    this.router.navigate(['/home']);
   }
 
 }
