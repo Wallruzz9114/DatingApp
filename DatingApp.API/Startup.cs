@@ -37,18 +37,13 @@ namespace DatingApp.API
             app.UseSwagger(option => { option.RouteTemplate = swaggerConfig.JsonRoute; });
             app.UseSwaggerUI(option => { option.SwaggerEndpoint(swaggerConfig.UIEndpoint, swaggerConfig.Description); });
 
-            // app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             // seeder.SeedUsers();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc(routes => {
-                routes.MapSpaFallbackRoute(
-                    name: "spa-fallback",
-                    defaults: new { controller = "FallbackController", action = "Index" }
-                );
-            });
+            app.UseMvc();
         }
     }
 }
