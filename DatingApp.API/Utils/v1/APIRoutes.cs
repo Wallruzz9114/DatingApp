@@ -20,7 +20,8 @@ namespace DatingApp.API.Utils.v1
         {
             public const string AllUsersEndpoint = Base + "/users";
             public const string CreateUserEndpoint = Base + "/users";
-            public const string GetUserEndpoint = Base + "/users/{userId}";
+            public const string GetUserEndpoint = Base + "/users/{id}";
+            public const string GetUserEndpointName = "GetUser";
             public const string UpdateUserEndpoint = Base + "/users/{userId}";
             public const string DeleteUserEndpoint = Base + "/users/{userId}";
         }

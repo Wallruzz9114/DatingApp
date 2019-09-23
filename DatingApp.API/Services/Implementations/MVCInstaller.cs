@@ -1,5 +1,7 @@
 using System.Text;
+using AutoMapper;
 using DatingApp.API.Configs;
+using DatingApp.API.Data;
 using DatingApp.API.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
@@ -22,8 +24,10 @@ namespace DatingApp.API.Services.Implementations
                 swagger.SwaggerDoc("v1", new Info { Title = "DatingApp API", Version = "v1" });
             });
             services.AddCors();
+            services.AddAutoMapper(typeof(DatingService).Assembly);
             services.Configure<CloudinaryConfig>(configuration.GetSection("CloudinarySettings"));
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IDatingService, DatingService>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
                 options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -37,8 +41,7 @@ namespace DatingApp.API.Services.Implementations
                     };
                 }
             );
-            // services.AddAutoMapper();
-            // services.AddTransient<Seed>();
+            services.AddTransient<Seed>();
         }
     }
 }
